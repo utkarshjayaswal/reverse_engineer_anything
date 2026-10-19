@@ -1,8 +1,8 @@
 # REA evidence bundle
 
-This repository holds one artifact: `rea-evidence-bundle.json` — the evidence bundle
-produced by running REA (Reverse Engineer Anything) in static-analysis mode against a
-small demo JavaScript application.
+This repository holds the artifact produced by running REA (Reverse Engineer
+Anything) in static-analysis mode against a small demo JavaScript application,
+plus the source of that application.
 
 REA is the open-source reverse-engineering CLI + MCP server from the `morluto/rea`
 project:
@@ -17,10 +17,20 @@ project:
 - Per-file SHA-256 digests and source ranges for each finding
 - Confidence tags per finding (all `exact` / `high`; AST-based, no code executed)
 
+## The demo target
+`target/` contains the 4-file ES-module app that was analysed, so the bundle is
+self-contained and reproducible:
+
+- `target/package.json`
+- `target/src/index.js` — entry point (`main`)
+- `target/src/math.js` — `add`, `multiply`, `factorial`
+- `target/src/auth.js` — `hashPassword`, `checkPassword`, `sessionId`
+- `target/src/cart.js` — `lineTotal`, `cartTotal`
+
 ## How it was produced
-Run against a 4-file ES-module demo app (a math lib, an auth helper, a cart, and an
-entry point). The target was inspected statically — none of its code was executed.
+REA inspected the target statically — none of its code was executed during analysis.
 
 ## Notes
 - The demo target was authored for this test and contains nothing proprietary.
-- This repository contains the evidence bundle only; the REA tool itself is not included.
+- This repository contains the evidence bundle and target source only; the REA tool
+  itself is not included.
