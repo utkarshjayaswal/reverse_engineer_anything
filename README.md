@@ -1,16 +1,3 @@
-# REA evidence bundle
-
-This repository holds the artifact produced by running REA (Reverse Engineer
-Anything) in static-analysis mode against a small demo JavaScript application,
-plus the source of that application.
-
-REA is the open-source reverse-engineering CLI + MCP server from the `morluto/rea`
-project:
-
-- Source: https://github.com/morluto/rea
-- Website: https://rea.tools
-- npm package: `rea-agents` (v6.7.0 used here)
-
 ## What the bundle contains
 - The analysis operation (`analyze_javascript_application`) and the provider that ran it
 - A JavaScriptApplicationGraph: every source module with its exports and import edges
